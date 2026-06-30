@@ -29,3 +29,34 @@ user Logins
     SSO & MFA
 ---------------
 M365  Jira  HRportal
+
+**How It Works in Okta** -- **Let's walk through a typical login.**
+
+User access application and 
+ │ 1. Enters username
+ ▼
+Okta
+ │ 2. Requests password
+ ▼
+User
+ │ 3. Enters password
+ ▼
+Okta
+ │ 4. Requests MFA (if required)
+ ▼
+User
+ │ 5. Approves MFA
+ ▼
+Authentication Successful
+ │
+ ▼
+Okta evaluates:
+ • Group membership
+ • Policies
+ • Application assignment
+ │
+ ▼
+Authorized?
+ │
+ ├── Yes → Launch Salesforce
+ └── No  → Access Denied
